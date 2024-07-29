@@ -8,9 +8,11 @@ services:
       - '9300:9300'
     environment:
       discovery.type: single-node
+      xpack.security.enabled: true
       ES_JAVA_OPTS: -Xmx512m -Xms512m
       node.name: es01
       cluster.name: elasticsearch
+      ELASTIC_PASSWORD: ${ELASTIC_PASSWORD}
     volumes:
       - ./elastic/data:/usr/share/elasticsearch/data
     networks:
@@ -26,6 +28,9 @@ services:
       SERVERNAME: kibana
       ELASTICSEARCH_HOSTS: http://elasticsearch:9200
       ES_JAVA_OPTS: -Xmx512m -Xms512m
+      ELASTICSEARCH_USERNAME: ${ELASTIC_USER}
+      KIBANA_PASSWORD: ${KIBANA_PASSWORD}
+      XPACK_SECURITY_ENABLED: true
     networks:
       - elasticnet
     depends_on:

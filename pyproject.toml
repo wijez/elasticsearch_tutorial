@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "elasticsearch-tutorial"
+version = "0.1.0"
+description = ""
+authors = ["wijez"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.111.1"
+pydantic = "^2.8.2"
+uvicorn = "^0.30.3"
+elasticsearch = "^7.11.1"
+
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
